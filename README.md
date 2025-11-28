@@ -1,30 +1,46 @@
-
 <body>
   <div class="container" role="main">
     <header>
-      <h1>Shape Classification Using Logistic Regression</h1>
-      <p class="lead">A simple image classification project that trains a Logistic Regression model to identify <strong>Circle</strong>, <strong>Square</strong>, and <strong>Triangle</strong> from BMP images.</p>
-      <div class="meta" aria-hidden="true">
+      <h1>Shape Classifier – Image Recognition GUI</h1>
+      <p class="lead">
+        A Python project that uses <strong>Logistic Regression</strong> to classify 
+        <strong>Circle</strong>, <strong>Square</strong>, and <strong>Triangle</strong> shapes.
+        The project now includes a fully interactive <strong>Tkinter GUI</strong> where users can upload an image and instantly see the result.
+      </p>
+      <div class="meta">
         <span class="tag">Python</span>
-        <span class="tag">NumPy</span>
-        <span class="tag">Pillow (PIL)</span>
+        <span class="tag">Tkinter</span>
         <span class="tag">scikit-learn</span>
+        <span class="tag">Pillow</span>
+        <span class="tag">NumPy</span>
       </div>
     </header>
-<section>
-      <h2>📌 Features</h2>
+
+  <section>
+      <h2>✨ New in This Version</h2>
       <ul>
-        <li>Loads a dataset of BMP images</li>
-        <li>Converts images to grayscale and flattens them</li>
-        <li>Trains a Logistic Regression classifier</li>
-        <li>User can input a custom image path for prediction</li>
-        <li>Beginner-friendly; easy to extend with other models</li>
+        <li>Added a complete <strong>Graphical User Interface (GUI)</strong> using Tkinter</li>
+        <li>User can select an image using a file dialog</li>
+        <li>Model prediction appears instantly inside the GUI</li>
+        <li>Improved structure and readability of the code</li>
+        <li>Automatic resizing & preprocessing of input images</li>
       </ul>
     </section>
 
- <section>
+   <section>
+      <h2>📌 Features</h2>
+      <ul>
+        <li>Loads and preprocesses a dataset of BMP images</li>
+        <li>Trains a Logistic Regression classifier</li>
+        <li>Graphical interface for selecting images</li>
+        <li>Instant shape prediction (Circle / Square / Triangle)</li>
+        <li>Beginner-friendly machine learning example</li>
+      </ul>
+    </section>
+
+  <section>
       <h2>📁 Dataset Structure</h2>
-      <p class="note">Place the dataset in a <code class="inline">dataset/</code> folder and name images sequentially:</p>
+      <p>Place training images inside a directory called <code>dataset/</code>:</p>
       <pre><code>dataset/
 1.bmp
 2.bmp
@@ -32,80 +48,76 @@
 ...
 50.bmp
 </code></pre>
-      <p>Labels are assigned in the code using an array <code class="inline">y</code> where:</p>
+
+ <p>Labels used in the project:</p>
       <table>
-        <tr><th style="text-align:left">Label</th><th style="text-align:left">Meaning</th></tr>
+        <tr><th>Value</th><th>Shape</th></tr>
         <tr><td>0</td><td>Circle</td></tr>
-        <tr><td>1</td><td>Square (shown as 'sqrt' in code)</td></tr>
+        <tr><td>1</td><td>Square</td></tr>
         <tr><td>2</td><td>Triangle</td></tr>
       </table>
-      <p class="note">Ensure the order of images matches the label array in the script.</p>
     </section>
-
- <section>
+  <section>
       <h2>🧠 How the Model Works</h2>
-   <ol>
-        <li>Each image is loaded with Pillow and converted to a NumPy array.</li>
-        <li>The code extracts a single grayscale channel and flattens the image into a 1D vector.</li>
-        <li>The dataset is split (default 80% train / 20% test).</li>
-        <li>A <code class="inline">LogisticRegression</code> model is trained on flattened images.</li>
-        <li>User supplies a path to a test image; the model predicts and prints the shape label.</li>
+      <ol>
+        <li>Loads images and converts them to grayscale</li>
+        <li>Flattens each image into a 1D vector</li>
+        <li>Splits data using <code>train_test_split</code></li>
+        <li>Trains a <strong>Logistic Regression</strong> classifier</li>
+        <li>Resizes user-selected image to 64×64</li>
+        <li>Predicts the shape inside the GUI</li>
       </ol>
     </section>
-
- <section>
+  <section>
       <h2>💻 Installation</h2>
-      <p>Clone the repository and install dependencies:</p>
       <pre><code>pip install numpy pillow scikit-learn matplotlib</code></pre>
     </section>
+  <section>
+      <h2>🚀 How to Run</h2>
+      <p>Run the main script:</p>
+      <pre><code>python main.py</code></pre>
 
- <section>
-      <h2>▶️ How to Run</h2>
-    <p>Run the main script from the project folder:</p>
-<pre><code>python main.py</code></pre>
-<p>Then enter the path of an image to classify, for example:</p>
-<pre><code>enter the path of your image: dataset/test_triangle.bmp</code></pre>
-<h2>📌 Example Output</h2>
-<pre><code>enter the path of your image: dataset/test_triangle.bmp
-it is tringle
-</code></pre>
+  <p>The GUI will open:</p>
+     <ul>
+        <li>Click "<strong>Choose file</strong>"</li>
+        <li>Select an image</li>
+        <li>The predicted shape will appear instantly</li>
+      </ul>
     </section>
-
- <section>
+  <section>
       <h2>🛠 Technologies Used</h2>
       <ul>
         <li>Python 3</li>
-        <li>NumPy — numerical processing</li>
-        <li>Pillow (PIL) — image loading and handling</li>
-        <li>scikit-learn — Logistic Regression</li>
-        <li>Matplotlib — optional visualization</li>
+        <li>Tkinter – GUI interface</li>
+        <li>Pillow – image preprocessing</li>
+        <li>scikit-learn – Logistic Regression model</li>
+        <li>NumPy – array manipulation</li>
       </ul>
     </section>
 
-<section>
+  <section>
       <h2>🚀 Future Improvements</h2>
       <ul>
-        <li>Support more shapes</li>
-        <li>Try different ML models: SVM, RandomForest, KNN, Neural Networks</li>
-        <li>Improve preprocessing: resizing, normalization, denoising</li>
-        <li>Add automatic dataset labeling or augmentations</li>
-        <li>Build a small GUI (Tkinter/PyQt) or a simple web demo</li>
+        <li>Switch to Convolutional Neural Networks (CNN)</li>
+        <li>Add more shape classes</li>
+        <li>Improve GUI design</li>
+        <li>Add training visualization</li>
+        <li>Use a JSON file for automatic labeling</li>
       </ul>
     </section>
 
- <section>
+   <section>
       <h2>📜 License</h2>
-      <p class="note">This project is open-source and free to use. Add a license file (e.g., <span class="kbd">MIT</span>) in your repository if you want to explicitly set terms.</p>
+      <p>This project is open-source. Add a license file (MIT recommended) for public use.</p>
     </section>
 
- <footer>
-      <p class="note">If you want, I can also:</p>
+  <footer>
+      <p>If you want, I can also:</p>
       <ul>
-        <li>Provide this file as an actual <strong>README.html</strong> ready to paste into your repo.</li>
-        <li>Add screenshots or sample images to include in the repo.</li>
-        <li>Convert the same content to a minimal <strong>README.md</strong> or a GitHub Pages friendly layout.</li>
+        <li>Create a Markdown version: <strong>README.md</strong></li>
+        <li>Add screenshots of your GUI</li>
+        <li>Write a Persian (Farsi) version for your GitHub portfolio</li>
       </ul>
-      <p style="margin-top:8px">Good luck — and tell me if you want a localized Persian version or slight wording changes for a portfolio!</p>
     </footer>
   </div>
 </body>
